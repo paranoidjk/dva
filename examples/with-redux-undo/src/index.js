@@ -62,11 +62,13 @@ const App = connect(({ present: { counter } }) => ({
   );
 });
 
-const AnotherApp = connect(({ another }) => ({
+const AnotherApp = connect(({ another, context }) => ({
   another,
+  context,
 }))(props => {
   return (
     <div style={{ textAlignLast: 'center' }}>
+      <h1>User: {props.context.user}</h1>
       <h2>Count: {props.another}</h2>
       <button
         onClick={() => {
